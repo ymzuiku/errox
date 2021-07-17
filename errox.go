@@ -10,7 +10,6 @@ var Debug = false
 
 func wrapStack(err error) error {
 	_, file, line, ok := runtime.Caller(2)
-	// f := runtime.FuncForPC(pc)
 	if !ok {
 		return errors.New("[bug]WrapError runtime.Caller(2) Fail")
 	}
@@ -20,7 +19,6 @@ func wrapStack(err error) error {
 func Line() string {
 	if Debug {
 		_, file, line, ok := runtime.Caller(1)
-		// f := runtime.FuncForPC(pc)
 		if !ok {
 			return "[bug]WrapError runtime.Caller(2) Fail"
 		}
