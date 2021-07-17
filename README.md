@@ -18,10 +18,10 @@ go get github.com/ymzuiku/errox
 
 ## APIs
 
-- `errox.Debug` : Change debug bool
+- `errox.Debug` : Change debug bool, base is false
 - `errox.New(string) error` : Create a error
 - `errox.Wrap(error) error` : Add stack info to error when errox.Debug = true
-- `errox.Errorf(string, args ...interface{}) error` : Add stack info and format error when errox.Debug = true
+- `errox.Errorf(string, args ...interface{}) error` : Add stack info and fmt.Errorf when errox.Debug = true
 - `errox.Line() string` : Make stack info string when errox.Debug = true
 
 ## Use
