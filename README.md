@@ -6,8 +6,8 @@ errox can print error like:
 
 ```bash
 /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16 (Method main.errorB)
-|- Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
-|- Sub error
+Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
+Sub error
 ```
 
 ## Install
@@ -59,8 +59,8 @@ If errox.Debug = true, it print:
 
 ```bash
 /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16 (Method main.errorB)
-|- Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
-|- Sub error
+Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
+Sub error
 ```
 
 If errox.Debug = false, it print:

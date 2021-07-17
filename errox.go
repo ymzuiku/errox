@@ -14,7 +14,7 @@ func wrapStack(err error) error {
 	if !ok {
 		return errors.New("[bug]WrapError runtime.Caller(2) Fail")
 	}
-	return fmt.Errorf("%s:%d (Method %s)\n|- %w\n", file, line, f.Name(), err)
+	return fmt.Errorf("%s:%d (Method %s)\n%w\n", file, line, f.Name(), err)
 }
 
 func Line() string {
