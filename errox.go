@@ -13,7 +13,7 @@ func wrapStack(err error) error {
 	if !ok {
 		return errors.New("[bug]WrapError runtime.Caller(2) Fail")
 	}
-	return fmt.Errorf("%s:%d\n%w\n", file, line, err)
+	return fmt.Errorf("\n%s:%d : %w", file, line, err)
 }
 
 func Line() string {
@@ -22,7 +22,7 @@ func Line() string {
 		if !ok {
 			return "[bug]WrapError runtime.Caller(2) Fail"
 		}
-		return fmt.Sprintf("%s:%d\n", file, line)
+		return fmt.Sprintf("\n%s:%d", file, line)
 	}
 	return ""
 }
