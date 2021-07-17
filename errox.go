@@ -9,22 +9,22 @@ import (
 var Debug = false
 
 func wrapStack(err error) error {
-	pc, file, line, ok := runtime.Caller(2)
-	f := runtime.FuncForPC(pc)
+	_, file, line, ok := runtime.Caller(2)
+	// f := runtime.FuncForPC(pc)
 	if !ok {
 		return errors.New("[bug]WrapError runtime.Caller(2) Fail")
 	}
-	return fmt.Errorf("%s:%d (Method %s)\n%w\n", file, line, f.Name(), err)
+	return fmt.Errorf("%s:%d\n%w\n", file, line, err)
 }
 
 func Line() string {
 	if Debug {
-		pc, file, line, ok := runtime.Caller(1)
-		f := runtime.FuncForPC(pc)
+		_, file, line, ok := runtime.Caller(1)
+		// f := runtime.FuncForPC(pc)
 		if !ok {
 			return "[bug]WrapError runtime.Caller(2) Fail"
 		}
-		return fmt.Sprintf("%s:%d (Method %s)\n", file, line, f.Name())
+		return fmt.Sprintf("%s:%d\n", file, line)
 	}
 	return ""
 }

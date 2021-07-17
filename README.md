@@ -5,8 +5,8 @@ In debug env, print error file line
 errox can print error like:
 
 ```bash
-/Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16 (Method main.errorB)
-Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
+/Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16
+Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10
 Sub error
 ```
 
@@ -58,8 +58,8 @@ func main() {
 If errox.Debug = true, it print:
 
 ```bash
-/Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16 (Method main.errorB)
-Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10 (Method main.errorA)
+/Users/xxx/Documents/work/go-github/errox/cmd/temp.go:16
+Root error, /Users/xxx/Documents/work/go-github/errox/cmd/temp.go:10
 Sub error
 ```
 
