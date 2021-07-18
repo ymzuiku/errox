@@ -16,6 +16,7 @@ func wrapStack(err error) error {
 	return fmt.Errorf("\n%s:%d : %w", file, line, err)
 }
 
+// Line Make stack info string when errox.Debug = true
 func Line() string {
 	if Debug {
 		_, file, line, ok := runtime.Caller(1)
@@ -27,6 +28,7 @@ func Line() string {
 	return ""
 }
 
+// Add stack info to error when errox.Debug = true
 func Wrap(err error) error {
 	if err == nil {
 		return nil
