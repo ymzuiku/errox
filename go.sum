@@ -1,4 +1,2 @@
-github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
-github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/ymzuiku/so v0.0.0-20210717161045-90cec93685d5 h1:zPV+16fUoC7T/MhMt45ywQ+kb99iykWplyCCIManWdU=
 github.com/ymzuiku/so v0.0.0-20210717161045-90cec93685d5/go.mod h1:ObY83aSJjn9d6CKpw2R583U2JyHkxh945pMAIwC/pr8=

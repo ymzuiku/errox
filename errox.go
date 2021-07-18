@@ -27,16 +27,32 @@ func Line() string {
 	return ""
 }
 
-func Stack(err error) error {
-	return wrapStack(err)
-}
-
 func Wrap(err error) error {
 	if err == nil {
 		return nil
 	}
 	if Debug {
 		return wrapStack(err)
+	}
+	return err
+}
+
+func Wrapm(err error, msg string) error {
+	if err == nil {
+		return nil
+	}
+	if Debug {
+		return wrapStack(fmt.Errorf("%v %w", msg, err))
+	}
+	return err
+}
+
+func Wrapf(err error, format string, a ...interface{}) error {
+	if err == nil {
+		return nil
+	}
+	if Debug {
+		return wrapStack(fmt.Errorf("%v %w", fmt.Sprintf(format, a...), err))
 	}
 	return err
 }

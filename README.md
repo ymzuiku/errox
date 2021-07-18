@@ -21,6 +21,8 @@ go get github.com/ymzuiku/errox
 - `errox.Debug` : Change debug bool, base is false
 - `errox.New(string) error` : Create a error
 - `errox.Wrap(error) error` : Add stack info to error when errox.Debug = true
+- `errox.Wrapm(error, string) error` : Same errox.Wrap, add message string
+- `errox.Wrapf(error, format, a ...interface{}) error` : Same errox.Wrap, add format string
 - `errox.Errorf(string, args ...interface{}) error` : Add stack info and fmt.Errorf when errox.Debug = true
 - `errox.Line() string` : Make stack info string when errox.Debug = true
 
