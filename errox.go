@@ -37,16 +37,6 @@ func Wrap(err error) error {
 	return err
 }
 
-func Wrapm(err error, msg string) error {
-	if err == nil {
-		return nil
-	}
-	if Debug {
-		return wrapStack(fmt.Errorf("%v %w", msg, err))
-	}
-	return err
-}
-
 func Wrapf(err error, format string, a ...interface{}) error {
 	if err == nil {
 		return nil
