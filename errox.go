@@ -12,10 +12,10 @@ func wrapStack(err error) error {
 	_, file, line, ok := runtime.Caller(2)
 
 	if !ok {
-		return errors.New(color.RedString("[errox]WrapError runtime.Caller(2) Fail"))
+		return errors.New(color.HiRedString("[errox]WrapError runtime.Caller(2) Fail"))
 	}
 
-	return fmt.Errorf("\n%s%s%s%w", color.GreenString(file), color.GreenString(":%d", line), color.GreenString(" : "), err)
+	return fmt.Errorf("\n%s%s%s%w", color.HiRedString(file), color.HiRedString(":%d", line), color.HiRedString(" : "), err)
 }
 
 // Change debug bool, base is false
