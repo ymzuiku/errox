@@ -18,12 +18,12 @@ func TestShowLine(t *testing.T) {
 	errox.Debug = true
 	t.Run("test in this file", func(t *testing.T) {
 		err := errorDog()
-		so.True(t, regexp.MustCompile(`test/errox_test.go`).Match([]byte(err.Error())), err)
+		so.True(t, regexp.MustCompile(`test/errox_test.go`).Match([]byte(err.Error())))
 	})
 
 	t.Run("test in other file", func(t *testing.T) {
 		err := othertest.OtherError()
-		so.True(t, regexp.MustCompile(`errox/test/othertest/othertest.go:12`).Match([]byte(err.Error())), err)
-		so.True(t, regexp.MustCompile(`errox/test/othertest/othertest.go:6`).Match([]byte(err.Error())), err)
+		so.True(t, regexp.MustCompile(`errox/test/othertest/othertest.go:12`).Match([]byte(err.Error())))
+		so.True(t, regexp.MustCompile(`errox/test/othertest/othertest.go:6`).Match([]byte(err.Error())))
 	})
 }

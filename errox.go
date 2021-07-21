@@ -6,18 +6,16 @@ import (
 	"log"
 	"os"
 	"runtime"
-
-	"github.com/fatih/color"
 )
 
 func wrapStack(err error) error {
 	_, file, line, ok := runtime.Caller(2)
 
 	if !ok {
-		return errors.New(color.RedString("[errox]WrapError runtime.Caller(2) Fail"))
+		return errors.New("[errox]WrapError runtime.Caller(2) Fail")
 	}
 
-	return fmt.Errorf("\n%s%s %w", color.HiRedString(file), color.HiRedString(":%d", line), err)
+	return fmt.Errorf("\n%s:%d %w", file, line, err)
 }
 
 func lineStack() string {
@@ -25,7 +23,7 @@ func lineStack() string {
 	if !ok {
 		return "[bug]WrapError runtime.Caller(2) Fail"
 	}
-	return fmt.Sprintf("%s%s", color.GreenString(file), color.GreenString(":%d", line))
+	return fmt.Sprintf("%s:%d", file, line)
 }
 
 // Change debug bool, base is false
