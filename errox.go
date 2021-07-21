@@ -17,7 +17,7 @@ func wrapStack(err error) error {
 		return errors.New(color.RedString("[errox]WrapError runtime.Caller(2) Fail"))
 	}
 
-	return fmt.Errorf("\n%s%s%s%w", color.HiRedString(file), color.HiRedString(":%d", line), color.HiRedString(" "), err)
+	return fmt.Errorf("\n%s%s %w", color.HiRedString(file), color.HiRedString(":%d", line), err)
 }
 
 func lineStack() string {
