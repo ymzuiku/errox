@@ -3,6 +3,8 @@ package errox
 import (
 	"errors"
 	"fmt"
+	"log"
+	"os"
 	"runtime"
 
 	"github.com/fatih/color"
@@ -16,6 +18,14 @@ func wrapStack(err error) error {
 	}
 
 	return fmt.Errorf("\n%s%s%s%w", color.HiRedString(file), color.HiRedString(":%d", line), color.HiRedString(" "), err)
+}
+
+func lineStack() string {
+	_, file, line, ok := runtime.Caller(2)
+	if !ok {
+		return "[bug]WrapError runtime.Caller(2) Fail"
+	}
+	return fmt.Sprintf("%s%s", color.GreenString(file), color.GreenString(":%d", line))
 }
 
 // Change debug bool, base is false
@@ -62,11 +72,34 @@ func Errorf(format string, a ...interface{}) error {
 // Make stack info string when errox.Debug = true
 func Line() string {
 	if Debug {
-		_, file, line, ok := runtime.Caller(1)
-		if !ok {
-			return "[bug]WrapError runtime.Caller(2) Fail"
-		}
-		return fmt.Sprintf("\n%s:%d", file, line)
+		return lineStack()
 	}
 	return ""
+}
+
+// log.Fatalf and add stack line
+func Fatalf(format string, v ...interface{}) {
+	if Debug {
+		fmt.Printf(lineStack()+" "+format, v...)
+		os.Exit(1)
+		return
+	}
+	log.Fatalf(format, v...)
+}
+
+// log.Panicf and add stack line
+func Panicf(format string, v ...interface{}) {
+	if Debug {
+		panic(fmt.Sprintf(lineStack()+" "+format, v...))
+	}
+	log.Panicf(format, v...)
+}
+
+// log.Printf and add stack line
+func Printf(format string, v ...interface{}) {
+	if Debug {
+		fmt.Printf(lineStack()+" "+format, v...)
+		return
+	}
+	log.Printf(format, v...)
 }
