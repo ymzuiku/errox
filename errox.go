@@ -39,9 +39,6 @@ func New(msg string) error {
 
 // Add stack info to error when errox.Debug = true
 func Wrap(err error) error {
-	if err == nil {
-		return nil
-	}
 	if Debug {
 		return wrapStack(err)
 	}
@@ -51,7 +48,7 @@ func Wrap(err error) error {
 // Same errox.Wrap, add format string
 func Wrapf(err error, format string, a ...interface{}) error {
 	if err == nil {
-		return nil
+		return err
 	}
 	if Debug {
 		return wrapStack(fmt.Errorf("%v %w", fmt.Sprintf(format, a...), err))
