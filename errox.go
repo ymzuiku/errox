@@ -51,12 +51,12 @@ func Wrap(err error) error {
 // Same errox.Wrap, add format string
 func Wrapf(err error, format string, a ...interface{}) error {
 	if err == nil {
-		return fmt.Errorf("%v %w", fmt.Sprintf(format, a...), err)
+		return fmt.Errorf("%v %w", fmt.Errorf(format, a...), err)
 	}
 	if Debug {
-		return wrapStack(fmt.Errorf("%v %w", fmt.Sprintf(format, a...), err))
+		return wrapStack(fmt.Errorf("%v %w", fmt.Errorf(format, a...), err))
 	}
-	return fmt.Errorf("%v %w", fmt.Sprintf(format, a...), err)
+	return fmt.Errorf("%v %w", fmt.Errorf(format, a...), err)
 }
 
 // Add stack info and fmt.Errorf when errox.Debug = true
